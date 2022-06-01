@@ -373,6 +373,18 @@ func (sm *StorageMinerAPI) SectorRemove(ctx context.Context, id abi.SectorNumber
 	return sm.Miner.RemoveSector(ctx, id)
 }
 
+func (sm *StorageMinerAPI) SectorCounterGet(ctx context.Context) (abi.SectorNumber, error) {
+	return sm.Miner.GetSectorNumber(ctx)
+}
+
+func (sm *StorageMinerAPI) SectorCounterSet(ctx context.Context, id abi.SectorNumber) error {
+	return sm.Miner.SetSectorNumber(ctx, id)
+}
+
+func (sm *StorageMinerAPI) SectorCounterNext(ctx context.Context) (abi.SectorNumber, error) {
+	return sm.Miner.NextSectorNumber(ctx)
+}
+
 func (sm *StorageMinerAPI) SectorTerminate(ctx context.Context, id abi.SectorNumber) error {
 	return sm.Miner.TerminateSector(ctx, id)
 }

@@ -295,6 +295,18 @@ func (m *Sealing) Address() address.Address {
 	return m.maddr
 }
 
+func (m *Sealing) GetSectorNumber(ctx context.Context) (abi.SectorNumber, error) {
+	return m.sc.Get()
+}
+
+func (m *Sealing) SetSectorNumber(ctx context.Context, sid abi.SectorNumber) error {
+	return m.sc.Set(sid)
+}
+
+func (m *Sealing) NextSectorNumber(ctx context.Context) (abi.SectorNumber, error) {
+	return m.sc.Next()
+}
+
 func getDealPerSectorLimit(size abi.SectorSize) (int, error) {
 	if size < 64<<30 {
 		return 256, nil

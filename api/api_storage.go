@@ -120,6 +120,11 @@ type StorageMiner interface {
 	// SectorAbortUpgrade can be called on sectors that are in the process of being upgraded to abort it
 	SectorAbortUpgrade(context.Context, abi.SectorNumber) error //perm:admin
 
+	// For lotus-miner sectors counter cmd
+	SectorCounterGet(context.Context) (abi.SectorNumber, error)  //perm:read
+	SectorCounterSet(context.Context, abi.SectorNumber) error    //perm:admin
+	SectorCounterNext(context.Context) (abi.SectorNumber, error) //perm:admin
+
 	// WorkerConnect tells the node to connect to workers RPC
 	WorkerConnect(context.Context, string) error                              //perm:admin retry:true
 	WorkerStats(context.Context) (map[uuid.UUID]storiface.WorkerStats, error) //perm:admin

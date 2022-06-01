@@ -144,6 +144,15 @@ type sidsc struct {
 	sc *storedcounter.StoredCounter
 }
 
+func (s *sidsc) Get() (abi.SectorNumber, error) {
+	i, err := s.sc.Get()
+	return abi.SectorNumber(i), err
+}
+
+func (s *sidsc) Set(number abi.SectorNumber) error {
+	return s.sc.Set(uint64(number))
+}
+
 func (s *sidsc) Next() (abi.SectorNumber, error) {
 	i, err := s.sc.Next()
 	return abi.SectorNumber(i), err

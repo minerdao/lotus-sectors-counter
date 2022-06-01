@@ -1682,6 +1682,7 @@ COMMANDS:
    batching              manage batch sector operations
    match-pending-pieces  force a refreshed match of pending pieces to open sectors without manually waiting for more deals
    compact-partitions    removes dead sectors from partitions and reduces the number of partitions used if possible
+   counter               manage sector number counter
    help, h               Shows a list of commands or help for one command
 
 OPTIONS:
@@ -2049,6 +2050,66 @@ OPTIONS:
    --partitions value  list of partitions to compact sectors in
    --really-do-it      Actually send transaction performing the action (default: false)
    --help, -h          show help (default: false)
+   
+```
+
+### lotus-miner sectors counter
+```
+NAME:
+   lotus-miner sectors counter - manage sector number counter
+
+USAGE:
+   lotus-miner sectors counter command [command options] [arguments...]
+
+COMMANDS:
+   get      get the current sector number.
+   set      ADVANCED: manually set the next sector number
+   next     ADVANCED: Increase the sector number by 1
+   help, h  Shows a list of commands or help for one command
+
+OPTIONS:
+   --help, -h  show help (default: false)
+   
+```
+
+#### lotus-miner sectors counter get
+```
+NAME:
+   lotus-miner sectors counter get - get the current sector number.
+
+USAGE:
+   lotus-miner sectors counter get [command options] [arguments...]
+
+OPTIONS:
+   --help, -h  show help (default: false)
+   
+```
+
+#### lotus-miner sectors counter set
+```
+NAME:
+   lotus-miner sectors counter set - ADVANCED: manually set the next sector number
+
+USAGE:
+   lotus-miner sectors counter set [command options] <sectorNum>
+
+OPTIONS:
+   --really-do-it  pass this flag if you know what you are doing (default: false)
+   --help, -h      show help (default: false)
+   
+```
+
+#### lotus-miner sectors counter next
+```
+NAME:
+   lotus-miner sectors counter next - ADVANCED: Increase the sector number by 1
+
+USAGE:
+   lotus-miner sectors counter next [command options] [arguments...]
+
+OPTIONS:
+   --really-do-it  pass this flag if you know what you are doing (default: false)
+   --help, -h      show help (default: false)
    
 ```
 
